@@ -1,11 +1,11 @@
 ---
 
-- name: Prerequisites checks
+- name: Common checks
   hosts: all
   gather_facts: false
   become: true
   roles:
-  - prerequisites
+  - common
 
 
 - name: Deploy frontends
