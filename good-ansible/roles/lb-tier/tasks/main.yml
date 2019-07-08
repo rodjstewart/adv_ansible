@@ -16,7 +16,7 @@
 
 - name: configure haproxy
   template:
-    src: files/haproxy.cfg.j2
+    src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
 
 - name: restart HAproxy
