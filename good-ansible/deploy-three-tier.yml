@@ -1,0 +1,41 @@
+---
+
+- name: Prerequisites checks
+  hosts: all
+  gather_facts: false
+  become: true
+  roles:
+  - prerequisites
+
+
+- name: Deploy frontends
+  hosts: frontends
+  gather_facts: false
+  become: true
+  roles:
+  - lb-tier
+  tags: lb
+
+- name: Deploy app layer
+  hosts: apps
+  gather_facts: false
+  become: true
+  roles:
+  - app-tier
+  tags: app
+
+- name: Deploy DB tier
+  hosts: appdbs
+  gather_facts: false
+  become: true
+  roles:
+  - db-tier
+  tags: db
+
+- name: test the deployment
+  hosts: localhost
+  gather_facts: false
+  become: false
+  roles:
+  - tests
+  tags: test

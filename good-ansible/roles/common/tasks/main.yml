@@ -1,0 +1,13 @@
+---
+# tasks file for common
+
+- name: Common configuration
+
+  tasks:
+  - name: Copy Repository
+    copy:
+      content: "{{ CONTENT_FOR_REPO_FILE }}"
+      dest: /etc/yum.repos.d/open_three-tier-app.repo
+      owner: root
+      group: root
+      mode: '0644'

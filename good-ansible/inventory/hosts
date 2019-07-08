@@ -1,0 +1,16 @@
+[frontends]
+## These are the frontends
+frontend1.b352.internal ansible_ssh_host=frontend1.b352.example.opentlc.com
+
+[apps]
+## These are the apps
+app1.b352.internal ansible_ssh_host=app1.b352.example.opentlc.com
+app2.b352.internal ansible_ssh_host=app2.b352.example.opentlc.com
+
+[appdbs]
+## These are the appdbs
+appdb1.b352.internal ansible_ssh_host=appdb1.b352.example.opentlc.com
+
+## These are the support
+[support]
+support1.b352.internal ansible_ssh_host=support1.b352.example.opentlc.com

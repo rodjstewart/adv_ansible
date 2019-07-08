@@ -1,0 +1,8 @@
+---
+
+# tests for the 3 tier app deployment
+
+- name: test http connection
+  uri:
+    url: "http://{{ hostvars[item].ansible_ssh_host }}"
+  loop: "{{ groups['frontends'] }}"

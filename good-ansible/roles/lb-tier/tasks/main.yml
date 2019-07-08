@@ -1,0 +1,28 @@
+---
+# tasks file for lb-tier
+
+- name: deploy load balancer tier - haproxy
+
+  tasks:
+  - name: http
+    package:
+      name: '{{ item }}'
+      state: latest
+    with_items:
+      - httpie
+      - haproxy
+
+  - name: enable HAProxy
+    service:
+      name: haproxy
+      state: started
+
+  - name: configure haproxy
+    template:
+      src: files/haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+
+  - name: restart HAproxy
+    service:
+      name: haproxy
+      state: restarted
