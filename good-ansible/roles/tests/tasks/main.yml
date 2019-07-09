@@ -4,5 +4,5 @@
 
 - name: test http connection
   uri:
-    url: "http://{{ hostvars[item].ansible_ssh_host }}"
+    url: "http://{{ hostvars[item].inventory_hostname }}"
   loop: "{{ groups['frontends'] }}"
