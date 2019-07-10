@@ -1,0 +1,8 @@
+---
+# Load in memory inventory from OSP
+
+- name: Create in-memory inventory
+  add_host:
+    name: "{{ public_v4 }}"
+    groups: osp_instances
+    foo: 42

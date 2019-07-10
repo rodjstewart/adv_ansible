@@ -1,4 +1,11 @@
 ---
+- name: Get inventory
+  hosts: localhost
+  gather_facts: true
+  become: true
+  roles:
+  - OSPInventory
+  tags: inv
 
 - name: Common checks
   hosts: all
@@ -6,6 +13,7 @@
   become: true
   roles:
   - common
+  tags: common
 
 
 - name: Deploy frontends
