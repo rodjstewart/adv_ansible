@@ -1,8 +1,16 @@
 ---
-# Three tier app deployment on instantiated inventory
+# Three tier app deployment on in-memory inventory
+
+- name: Get inventory
+  hosts: localhost
+  gather_facts: true
+  become: true
+  roles:
+  - OSPInventory
+  tags: inv
 
 - name: Common checks
-  hosts: all
+  hosts: OSPInventory
   gather_facts: false
   become: true
   roles:
